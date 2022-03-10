@@ -2,6 +2,5 @@
   "compilerOptions": {
     "lib": ["DOM", "ES2015"],
     "outDir": "dist",
-    "rootDir": "src"
   }
 }
