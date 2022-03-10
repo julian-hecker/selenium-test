@@ -12,6 +12,14 @@ export class BasePage {
     this.driver = driver;
   }
 
+  protected async load(): Promise<void> {
+    throw Error('Not Implemented!');
+  }
+
+  protected async isLoaded(): Promise<boolean> {
+    throw Error('Not Implemented!');
+  }
+
   protected find(locator: Locator): WebElementPromise {
     try {
       return this.driver.findElement(locator);
@@ -53,6 +61,10 @@ export class BasePage {
 
   protected async isDisplayed(locator: Locator): Promise<boolean> {
     return await this.find(locator).isDisplayed();
+  }
+
+  protected async titleMatches(regex: RegExp): Promise<boolean> {
+    return regex.test(await this.driver.getTitle());
   }
 
   protected async sendKeys(
