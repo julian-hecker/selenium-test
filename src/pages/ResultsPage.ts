@@ -7,8 +7,7 @@ export class ResultsPage extends BasePage {
   }
 
   public async clickResultWithTitle(title: string): Promise<void> {
-    
-    await this.click(By.xpath(`//a[contains(text(), ${title})]`));
+    await this.click(By.partialLinkText(title));
   }
 
   public async isLoaded(): Promise<boolean> {
